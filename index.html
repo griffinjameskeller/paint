@@ -17,12 +17,12 @@
 	<body>
 			<div id="wrapper">
 		    <h1>Paint</h1>
-        
+
         <!-- Drawing controls -->
         <div class="control">
 	        <label>Color </label>
-	        <input class="toolbarElement color {pickerPosition:'top', pickerInsetColor:'#777 #777 #777 #777', pickerBorderColor:'#777 #777 #777 #777', pickerFaceColor:'#eee'}" id="ColorPicker" value="000000" /> 
-	      </div>     
+	        <input class="toolbarElement color {pickerPosition:'top', pickerInsetColor:'#777 #777 #777 #777', pickerBorderColor:'#777 #777 #777 #777', pickerFaceColor:'#eee'}" id="ColorPicker" value="000000" />
+	      </div>
 
         <div class="control">
 	        <label>Brush size</label>
@@ -35,6 +35,12 @@
 
 	      </div>
 
+				<div class="control">
+        	<label>change page</label>
+        	<div id="changePage"></div>
+
+	      </div>
+
 
 	      <!-- Save and Clear Buttons, set to float right in CSS -->
 				<button class="toolbarElement saveButton" type="button">
@@ -43,8 +49,17 @@
         <button class="toolbarElement clearButton" type="button">
             Clear
         </button>
-	    
+
 				<div id="drawingContainer"></div>
+
+				<div>
+		<img class="image1" id="timAndEric" src="images/timanderic.png" />
+	<img class="image2" id="too" src="images/two.png" />
+
+
+
+				</div>
+
 
 		</div>
 	</body>
