@@ -14,7 +14,7 @@ Steps to creating a new brush:
 
 To create a new input option you need to:
 
-* create the html element (input, button, select, slider) 
+* create the html element (input, button, select, slider)
 * create a global variable for it
 * save it to that global variable in the setup() function
 * attach an event listener
@@ -24,7 +24,7 @@ To create a new input option you need to:
 Assignment
 -----------
 
-**Make the clear button work**
+*Make the clear button work**
 
 Take a look at how the save button is set up. I've given you the HTML already so all you only need to edit the sketch.js file to get it to work.
 
@@ -32,11 +32,11 @@ Take a look at how the save button is set up. I've given you the HTML already so
 
 Add 3 new options to the brush type drop-down. They can use shapes or images.
 
-**Paint bucket**
+*Paint bucket**
 
 Make a paint bucket function that fills the entire canvas with one color. (It will have to cover any existing drawing on the canvas.)
 
-**Create an eraser**
+*Create an eraser**
 
 Tips: It's easiest to add this as a brush type. If you use the same color as the background it can look like you're erasing when you're technically painting over the image.
 

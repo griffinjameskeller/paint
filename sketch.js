@@ -2,7 +2,7 @@
 //  Paint
 //============================
 
-var drawingCanvas
+var drawingCanvas;
 var colorPicker;
 var slider;
 var clearButton;
@@ -15,11 +15,15 @@ var too;
 var pageType;
 
 var pumpkin;
+var cloud;
+var glasses;
 
 
 
 function preload(){
     pumpkin = loadImage("images/pumpkin.png");
+    cloud = loadImage("images/cloud.png");
+    glasses = loadImage("images/glasses.png")
     imageMode(CENTER);
 }
 
@@ -53,8 +57,11 @@ function setup() {
     brushPicker = createSelect();
     brushPicker.parent("brushType")
     brushPicker.option('paint brush');
+    brushPicker.option('pencil');
     brushPicker.option('spray can');
-    brushPicker.option('image');
+    brushPicker.option('pumpkin');
+    brushPicker.option('cloud');
+    brushPicker.option('glasses');
     brushPicker.option('eraser');
     brushPicker.option('fill with color');
     brushPicker.changed(changeBrush);
@@ -76,10 +83,18 @@ function draw() {
             sprayCan();
         } else if(brushType == "paint brush"){
             standardStroke();
-        } else if(brushType == "image"){
+          } else if(brushType == "pencil"){
+              pencilStroke();
+        } else if(brushType == "pumpkin"){
             drawImage();
+          } else if(brushType == "cloud"){
+            drawImageCloud();
+          } else if(brushType == "glasses"){
+            drawImageGlasses();
         } else if (brushType == "eraser"){
             eraserTool();
+        } else if (brushType == "fill with color"){
+            paintBucketTool();
         }
 
     } else{
@@ -112,6 +127,16 @@ function standardStroke(){
 
 }
 
+function pencilStroke(){
+
+
+    //pmouseX and pmouseY give you the previous mouse position
+    noStroke();
+    fill("#"+colorPicker.value() );
+    rect( mouseX, mouseY,slider.value(), slider.value());
+
+}
+
 function sprayCan(){
     var sliderVal = slider.value();
     stroke( "#"+colorPicker.value() );
@@ -131,8 +156,19 @@ function drawImage(){
     image(pumpkin,mouseX,mouseY, slider.value(), slider.value());
 }
 
+function drawImageCloud(){
+
+    var rando = Math.random();
+    //draw the image where the mouse is and set the size to the brush size
+    image(cloud,mouseX,mouseY, slider.value()*4/rando, slider.value()*4/rando);
+}
+
+function drawImageGlasses(){
+    //draw the image where the mouse is and set the size to the brush size
+    image(glasses,mouseX,mouseY, slider.value()*2, slider.value());
+}
+
 function paintBucketTool(){
-    var sliderVal = slider.value();
     background( "#"+colorPicker.value() );
 }
 
@@ -169,7 +205,7 @@ function clearFunction() {
 
 function changeImage(){
   pageType = pagePicker.value();
-  
+
   if (pageType == "tim and eric") {
     timAndEric.show();
     too.hide();
